@@ -98,16 +98,7 @@ ModbusMessage FC03(ModbusMessage request)
   {
       response.add((uint16_t)(datasend[0]));
   }
-  //  else
-  // {
-  //  // No, this is for FC 0x04. Response is random
-  //    for (uint8_t i = 0; i < words; ++i)
-  //  {
-  //    // send increasing data values
-  //      response.add((uint16_t)random(1, 65535));
-  //    }
-  // }
-  // Send response back
+  
   return response;
 }
 
@@ -234,12 +225,6 @@ void handle_input(int input, uint8_t offset){
 }
 void IRAM_ATTR onTimer() {   
   portENTER_CRITICAL_ISR(&timerMux); 
-  // handle_input(digitalRead(IN1), 0);
-  // handle_input(digitalRead(IN2), 1);
-  // handle_input(digitalRead(IN3), 2);
-  // handle_input(digitalRead(IN6), 3);
-  // handle_input(digitalRead(IN7), 4);
-  // handle_input(digitalRead(IN8), 5);
   switch (digitalRead(IN1))
   {
     case 0:{
